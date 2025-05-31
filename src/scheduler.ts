@@ -1,7 +1,7 @@
 //import cron from 'node-cron';
-import { Guild, ShardingManager, TextChannel } from 'discord.js';
+import { Client, Guild, TextChannel } from 'discord.js';
 
-export function startScheduledJobs(manager: ShardingManager) {
+export function startScheduledJobs(manager: Client) {
     //cron.schedule('0 * * * *', async () => {});
 
     /*manager.broadcastEval(client => {
