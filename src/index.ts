@@ -18,17 +18,11 @@ client.once(Events.ClientReady, () => {
     console.log(`Logged in as ${client.user!.tag}!`);
 
     // 활동 상태 설정
-    client.user?.setActivity('공부 시간 측정 중', { type: 3 }); // 3: Watching
+    client.user?.setActivity('Activity', { type: 3 }); // 3: Watching
 
     // 명령어 갱신
     console.log("Started refreshing application (/) commands.");
-    for (const guild of client.guilds.cache.values()) {
-        try {
-            deployCommands({ guildId: guild.id });
-        } catch (error) {
-            console.error(`Failed to deploy commands to guild ${guild.id}:`, error);
-        }
-    }
+    deployCommands();
     console.log("Successfully reloaded application (/) commands.");
 
     // 스케줄러 시작
